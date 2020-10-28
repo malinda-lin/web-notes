@@ -1,0 +1,1 @@
+chrome.runtime.onInstalled.addListener((function(){chrome.contextMenus.onClicked.addListener((function(e){console.log("created note!")})),chrome.contextMenus.create({id:"Web Notes",title:"Create Note",contexts:["all"]})}));

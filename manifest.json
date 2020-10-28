@@ -1,0 +1,39 @@
+{
+  "manifest_version": 2,
+  "name": "Web-Notes",
+  "version": "0.1.0",
+  "description": "Individualized notes per webpage",
+  "icons": {
+    "16": "images/get_started16.png",
+    "32": "images/get_started32.png",
+    "48": "images/get_started48.png",
+    "128": "images/get_started128.png"
+  },
+  "background": {
+      "scripts": ["./dist/background.bundle.js"],
+      "persistent": false
+  },
+  "browser_action": {
+      "default_popup": "./public/popup.html",
+      "default_icon": {
+        "16": "images/get_started16.png",
+        "32": "images/get_started32.png",
+        "48": "images/get_started48.png",
+        "128": "images/get_started128.png"
+      }
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "all_frames": false,
+      "js": ["./dist/context.bundle.js"],
+      "css": ["./public/styles/content.css"]
+    }
+  ],
+  "options_page": "./public/options.html",
+  "permissions": [
+      "contextMenus",
+      "storage",
+      "<all_urls>"
+  ] 
+}
