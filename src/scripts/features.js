@@ -1,4 +1,6 @@
-import { getStorage } from './utils.js';
+import { getStorage } from './utils';
+import { createNote } from './notepad';
+import { createHighlight } from './highlight';
 
 const createFeaturesMenu = () => {
   const container = document.createElement('div');
@@ -15,8 +17,8 @@ const createFeaturesMenu = () => {
   // highlightIcon.src = chrome.runtime.getURL('images/icons8-chisel-tip-marker-30.png');
   // notepadIcon.src = chrome.runtime.getURL('images/icons8-spiral-notepad-48.png');
 
-  highlightIcon.src = "https://img.icons8.com/fluent-systems-regular/48/000000/chisel-tip-marker.png";
-  notepadIcon.src = "https://img.icons8.com/dotty/80/000000/notepad.png";
+  highlightIcon.src = 'https://img.icons8.com/fluent-systems-regular/48/000000/chisel-tip-marker.png';
+  notepadIcon.src = 'https://img.icons8.com/dotty/80/000000/notepad.png';
 
   highlightFeat.className = 'feature-button';
   notepadFeat.className = 'feature-button';
@@ -29,16 +31,18 @@ const createFeaturesMenu = () => {
   notepadFeat.appendChild(notepadIcon);
 
   highlightFeat.addEventListener('click', () => {
-    const selection = getStorage('selection')
+    const selection = getStorage('selection');
     if (selection) {
-      // TODO: create a highlight
+      createHighlight(selection);
     } else {
       // TODO: show warning tooltip for user
       alert('!warn: highlight something with your mouse first');
     }
   });
 
-  notepadFeat.addEventListener('click', () => {});
+  notepadFeat.addEventListener('click', (event) => {
+    createNote(event.pageX, event.pageY);
+  });
 
   return container;
 };

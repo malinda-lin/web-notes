@@ -2,6 +2,7 @@
 // TODO: Upon clicking the extension in the context menu, the options for Web Notes should appear
 const showFeatures = (event) => {
   console.log('created note!');
+
 };
 
 chrome.runtime.onInstalled.addListener(() => {

@@ -15,3 +15,31 @@
   height: 20px;
   width: 20px;
 }
+.sticky-notes {
+  visibility: visible;
+  position: absolute;
+  background-color: yellow;
+  width: 100px;
+  height: 100px;
+}
+.note-textarea {
+  border: none;
+  background-color: transparent;
+  width: 100px;
+  height: 100px;
+}
+.edit-icon-container {
+  background-color: transparent;
+}
+.edit-icon {
+  height: 15px;
+  width: 15px;
+}
+.note-icon-container {
+  visibility: hidden;
+  position: absolute;
+}
+.note-icon {
+  height: 25px;
+  width: 25px;
+}
